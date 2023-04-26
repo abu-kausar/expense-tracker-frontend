@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import { plus } from '../../utils/icons';
 
 const ExpenseForm = () => {
-    const {addExpense, getExpense} = useGlobalContext()
+    const {addExpense, getExpense, error, setError} = useGlobalContext()
 
     const [inputState, setInputState] = useState({
         title: '',
@@ -21,6 +21,7 @@ const ExpenseForm = () => {
 
     const handleInput = (name) => e => {
         setInputState({...inputState, [name]: e.target.value});
+        setError('')
     }
 
     const handleSubmit = e => {
@@ -38,6 +39,7 @@ const ExpenseForm = () => {
 
     return (
         <ExpenseFormStyled onSubmit={handleSubmit}>
+            {error && <p className='error'>{error}</p>}
             <div className="input-control">
                 <input 
                     type="text"
@@ -69,7 +71,7 @@ const ExpenseForm = () => {
             </div>
 
             <div className="selects input-control">
-                <select required value={category} name="category" id="category" onChange={handleInput('category')}>
+                <select value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value="" disabled>Select Option</option>
                     <option value="education">Education</option>
                     <option value="groceries">Groceries</option>
