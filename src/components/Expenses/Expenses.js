@@ -6,11 +6,11 @@ import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from './ExpenseForm';
 
 const Expenses = () => {
-    const {addExpense, getExpense, expenses, deleteExpense, totalExpense} = useGlobalContext();
+    const {getExpense, expenses, deleteExpense, totalExpense} = useGlobalContext();
 
     useEffect(() => {
         getExpense()
-    }, [])
+    })
     
     return (
         <ExpensesStyeled>

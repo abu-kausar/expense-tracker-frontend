@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import avatar from '../..//img/avatar.png';
 import { menuItems } from '../../utils/menuItems';
-import { signout } from '../../utils/icons';
+// import { signout } from '../../utils/icons';
 
 const Navigation = ({active, setActive}) => {
     return (
@@ -10,7 +10,7 @@ const Navigation = ({active, setActive}) => {
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Mike</h2>
+                    <h2>Jane Doe</h2>
                     <p>Your Money</p>
                 </div>
             </div>
@@ -28,11 +28,11 @@ const Navigation = ({active, setActive}) => {
                     })
                 }
             </ul>
-            <div className="bottom-nav">
+            {/* <div className="bottom-nav">
                 <li>
                     {signout} Sign Out
                 </li>
-            </div>
+            </div> */}
         </NavStyled>
     );
 };

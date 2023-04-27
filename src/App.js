@@ -8,17 +8,18 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Incomes from "./components/Incomes/Incomes";
 import Expenses from "./components/Expenses/Expenses";
 import { useGlobalContext } from "./context/globalContext";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
     const [active, setActive] = useState(1);
 
-    const global = useGlobalContext();
+    useGlobalContext();
     // console.log(global);
 
     const displayData = () => {
         switch(active) {
             case 1: return <Dashboard/>;
-            case 2: return <Dashboard/>;
+            // case 2: return <Dashboard/>;
             case 3: return <Incomes/>;
             case 4: return <Expenses/>;
             default: return <Dashboard/>;
@@ -39,6 +40,7 @@ function App() {
                         displayData()
                     }
                 </main>
+                <Toaster/>
             </MainLayout>
         </AppStyled>
     )

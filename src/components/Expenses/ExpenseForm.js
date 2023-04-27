@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useGlobalContext } from '../../context/globalContext';
 import Button from '../Button/Button';
 import { plus } from '../../utils/icons';
+import { toast } from 'react-hot-toast';
 
 const ExpenseForm = () => {
     const {addExpense, getExpense, error, setError} = useGlobalContext()
@@ -34,6 +35,7 @@ const ExpenseForm = () => {
             category: '',
             description: ''
         })
+        toast.success(`$${amount} expense added`);
         getExpense();
     }
 

@@ -6,8 +6,6 @@ const Orb = () => {
 
     const {width, height} = useWindowSize();
 
-    console.log(width, height);
-
     const moveOrb = keyframes`
         0%{
             transform: translate(0, 0);

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const BASE_URL = "http://localhost:5000/api/v1/";
 
@@ -12,7 +13,7 @@ export const GlobalProvider = ({children}) => {
 
     // calculate income
     const addIncome = async(income) => {
-        const response = await axios.post(`${BASE_URL}addIncome`, income)
+        await axios.post(`${BASE_URL}addIncome`, income)
         .catch((err) => {
             setError(err.response.data.message);
         })
@@ -25,7 +26,8 @@ export const GlobalProvider = ({children}) => {
     }
 
     const deleteIncome = async(id) => {
-        const response =  await axios.delete(`${BASE_URL}deleteIncome/${id}`);
+        await axios.delete(`${BASE_URL}deleteIncome/${id}`);
+        toast.success('Income deleted successfully');
         getIncome();
     }
 
@@ -40,7 +42,7 @@ export const GlobalProvider = ({children}) => {
 
     // calculate expense
     const addExpense = async(expense) => {
-        const response = await axios.post(`${BASE_URL}addExpense`, expense)
+        await axios.post(`${BASE_URL}addExpense`, expense)
         .catch((err) => {
             setError(err.response.data.message);
         })
@@ -53,7 +55,8 @@ export const GlobalProvider = ({children}) => {
     }
 
     const deleteExpense = async(id) => {
-        const response =  await axios.delete(`${BASE_URL}deleteExpense/${id}`);
+        await axios.delete(`${BASE_URL}deleteExpense/${id}`);
+        toast.success('Expense deleted successfully');
         getExpense();
     }
 
