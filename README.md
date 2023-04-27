@@ -1,5 +1,7 @@
 # Money Manager
 
+![CHEESE!](money-manager.png)
+
 ## Live Link
 
 Live link: [Money Manager]()
