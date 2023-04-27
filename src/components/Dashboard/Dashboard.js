@@ -12,7 +12,7 @@ const Dashboard = () => {
     useEffect(() => {
         getIncome()
         getExpense()
-    }, [])
+    })
 
     return (
         <DashboardStyeled>
